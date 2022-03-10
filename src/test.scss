@@ -1,0 +1,94 @@
+$red: rgb(255, 0, 0);
+$yellow: rgb(255, 255, 0);
+$blue: rgb(0, 0, 255);
+
+.box1 {
+  background-color: $red;
+  width: 500px;
+  height: 200px;
+}
+
+.box2 {
+  background-color: $blue;
+  width: 500px;
+  height: 200px;
+}
+
+.box2 {
+  // .box2:hover
+  &:hover {
+    // & 자기 자신 | &가 없을 경우 하위 요소에게 hover가 생긴다.
+    background-color: $red;
+  }
+  &:active {
+    background-color: $yellow;
+  }
+}
+.box3 {
+  h3 {
+    // .box3 h3
+    font-size: 20px;
+    color: $red;
+  }
+  p {
+    // .box p
+    font-size: 15px;
+    color: $blue;
+  }
+}
+
+.box4 {
+  @extend .box1;
+  font-size: 50px;
+  color: #000;
+}
+
+@mixin btn($color, $width) {
+  font-size: 20px;
+  padding: 15px;
+  cursor: pointer;
+  background-color: $color;
+  outline: none;
+  border: $width solid #666;
+}
+
+.btn1 {
+  @include btn(#355, 5px);
+  margin: 20px;
+}
+
+.btn2 {
+  @include btn(#972, 10px);
+  margin: 20px;
+}
+
+@mixin size($value) {
+  $wh: 30px * $value;
+  width: $wh;
+  height: $wh;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: #777;
+  .box6 {
+    background-color: $red;
+    text-align: right;
+    &.orange {
+      background-color: orange;
+      @include size(3);
+    }
+    &.violet {
+      background-color: violet;
+      @include size(5);
+    }
+    &.tomato {
+      background-color: tomato;
+      @include size(6);
+    }
+    &.skyblue {
+      background-color: skyblue;
+      @include size(2);
+    }
+  }
+}

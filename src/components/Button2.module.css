@@ -1,0 +1,11 @@
+.title {
+  font-size: 50px;
+  text-align: center;
+  color: red;
+}
+
+.btn {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
